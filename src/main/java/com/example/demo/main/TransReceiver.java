@@ -16,7 +16,7 @@ import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.util.Map;
 
-@Component
+//@Component
 public class TransReceiver {
 
     @Value("${message.topic.name2}")

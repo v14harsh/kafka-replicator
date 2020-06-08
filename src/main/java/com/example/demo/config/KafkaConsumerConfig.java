@@ -15,8 +15,8 @@ import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
 import java.util.HashMap;
 import java.util.Map;
 
-@EnableKafka
-@Configuration
+//@EnableKafka
+//@Configuration
 public class KafkaConsumerConfig {
 
     @Value(value = "${kafka.bootstrapAddress}")
