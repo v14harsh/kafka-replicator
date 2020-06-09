@@ -30,7 +30,7 @@ public class TransReceiverMulti {
     public void construct() {
         Map<String, Object> props = new HashMap<>();
         props.put("bootstrap.servers", bootstrapAddress);
-        props.put("group.id", "test-group");
+        props.put("group.id", "foo");
         props.put("enable.auto.commit", false);
         props.put("auto.commit.interval.ms", "1000");
         props.put("session.timeout.ms", "30000");
@@ -38,10 +38,13 @@ public class TransReceiverMulti {
         props.put("value.deserializer", "org.apache.kafka.common.serialization.ByteArrayDeserializer");
 
         // inject the processor to the kafka message listener
-        MessageAckListener customAckMessageListener = new MessageAckListener(kafkaTemplate);
+        MessageAckListener customAckMessageListener = new MessageAckListener(kafkaTemplate, topic2);
 
         // start the consumer
-        ConsumerUtil.startOrCreateConsumers(topic1, customAckMessageListener, 2, props);
+        ConsumerUtil.startOrCreateConsumers(topic1, customAckMessageListener, 5, props);
+
+        // start the consumer
+        ConsumerUtil.startOrCreateConsumers(topic2, customAckMessageListener, 5, props);
     }
 
 }

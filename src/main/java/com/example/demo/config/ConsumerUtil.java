@@ -34,7 +34,6 @@ public class ConsumerUtil {
      * @param concurrency        number of consumers you need
      * @param consumerProperties all the necessary consumer properties need to be passed in this
      */
-
     public static void startOrCreateConsumers(
             final String topic,
             final MessageAckListener messageListener,
